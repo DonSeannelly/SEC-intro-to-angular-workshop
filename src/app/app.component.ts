@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { UserService } from './user.service';
 
 @Component({
   selector: 'app-root',
@@ -6,16 +7,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'app works!';
-  toggled = false;
 
-  textChanger() {
-    if(this.toggled) {
-      this.title = "app works!";
-    }
-    else {
-      this.title = "We changed the text!";
-    }
-    this.toggled = !this.toggled;
+  users;
+
+  constructor(userService: UserService) {
+    this.users = userService.getUsers();
   }
+
 }
