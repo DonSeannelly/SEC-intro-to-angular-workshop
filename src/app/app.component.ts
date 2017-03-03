@@ -7,8 +7,15 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'app works!';
+  toggled = false;
 
   textChanger() {
-    this.title = "We changed the text!";
+    if(this.toggled) {
+      this.title = "app works!";
+    }
+    else {
+      this.title = "We changed the text!";
+    }
+    this.toggled = !this.toggled;
   }
 }
