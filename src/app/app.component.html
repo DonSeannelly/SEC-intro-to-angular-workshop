@@ -1,5 +1,10 @@
 <div class="user-card" *ngFor="let user of users">
-    <img src="{{user.picture.medium}}"/>
-    <p>{{user.name.last}}, {{user.name.first}}</p>
-    <p>{{user.email}}</p>
+    <div class="info-pane">
+        <img src="{{user.picture.medium}}"/>
+        <p>{{user.name.last}}, {{user.name.first}}</p>
+        <p>{{user.email}}</p>
+    </div>
+    <div class="button-pane">
+        <button >Delete User</button>
+    </div>
 </div>

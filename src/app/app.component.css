@@ -1,4 +1,16 @@
 .user-card {
+    width: 30%;
+    margin-right: 1.5%;
+    margin-bottom: 10px;
     box-sizing: border-box;
     border: 1px solid black;
+    float: left;
+}
+.info-pane {
+    width: 75%;
+    float: left;
+}
+.button-pane {
+    width: 25%;
+    float: left;
 }
