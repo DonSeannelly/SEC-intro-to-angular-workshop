@@ -1,31 +1,58 @@
-# SECIntroToAngularWorkshop
+# SEC Intro To Angular Workshop
 
-This project was generated with [angular-cli](https://github.com/angular/angular-cli) version 1.0.0-beta.28.3.
+In this workshop, you will learn the basics of Angular, and walk away with a functioning web app. This workshop was put together for a presentation to Towson University's Software Engineering Club on March 3, 2017. This repository contains all source code, as well as supporting documentation for the workshop.
 
-## Development server
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## Getting Started
 
-## Code scaffolding
+This workshop assumes no prior experience, and will introduce a variety of new concepts and subjects. The hope is that all participants can complete the workshop, and the contents of the workshop will serve as a springboard for further study into the concepts and subjects included.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive/pipe/service/class/module`.
+### Installatioon Instructions
 
-## Build
+Participants must install Node.js for use in this workshop. We will also use npm, the package manager included in Node.js.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
+To install node, visit the [download page](https://nodejs.org/en/download/) and follow the install instructions for your system.
 
-## Running unit tests
+Once node is installed, we need to install the [Angular CLI](https://github.com/angular/angular-cli) as a global module (this allows you to use it for any project, not just the directory you are currently in).
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Note we need to make sure that we have Node 6.9.0 or higher and npm 3 or higher, as they are a prerequisite for the Angular CLI. The following is an example of the commands I ran, and the resulting output:
 
-## Running end-to-end tests
+```bash
+> node -v
+v6.9.0
+> npm -v
+v3.10.0
+```
+Once you have verified you have the correct versions of node and npm, it's time to install the Angular CLI:
+```bash
+npm install -g @angular/cli
+```
+Now let's generate and serve a new project using the Angular CLI we installed:
+```bash
+ng new PROJECT_NAME
+cd PROJECT_NAME
+ng serve
+```
+Now navigate to `http://localhost:4200/` to see the base of your web app!
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-Before running the tests make sure you are serving the app via `ng serve`.
+## Templates
 
-## Deploying to GitHub Pages
+####Render a value to the view:
+This value must correspond to a value in the controller. 
 
-Run `ng github-pages:deploy` to deploy to GitHub Pages.
-
-## Further help
-
-To get more help on the `angular-cli` use `ng help` or go check out the [Angular-CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+```javascript
+My name is {{name}}
+```
+####Bind a variable to a component:
+Again, this value must correspond to a value in the controller.
+```html
+<my-component [someProperty]="myValue"></my-component>
+```
+#### Listen for events on a component
+```html
+<my-component (click)="onClick($event)"></my-component>
+```
+#### Using a component as a template
+The ```*``` as a property indicates that this component will be used as a template. ```*ngFor``` and ```*ngIf``` are two popular properties that angular provides for component templates.
+```html
+<my-component *ngFor="item of items"></my-component>
+```
