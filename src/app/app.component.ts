@@ -7,4 +7,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'app works!';
+
+  textChanger() {
+    this.title = "We changed the text!";
+  }
 }
