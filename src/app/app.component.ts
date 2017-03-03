@@ -10,8 +10,14 @@ export class AppComponent {
 
   users;
 
-  constructor(userService: UserService) {
-    this.users = userService.getUsers();
+  constructor(public userService: UserService) {
+    this.loadUsers();
   }
+  loadUsers(){
+    this.userService.load()
+    .then(data => {
+      this.users = data;
+    });
+}
 
 }

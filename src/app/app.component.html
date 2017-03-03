@@ -1,1 +1,5 @@
-<p *ngFor="let user of users">{{user.name}}</p>
+<div class="user-card" *ngFor="let user of users">
+    <img src="{{user.picture.medium}}"/>
+    <p>{{user.name.last}}, {{user.name.first}}</p>
+    <p>{{user.email}}</p>
+</div>
