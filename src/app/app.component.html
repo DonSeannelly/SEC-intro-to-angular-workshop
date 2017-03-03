@@ -1,10 +1,19 @@
 <div class="user-card" *ngFor="let user of users; let i = index">
     <div class="info-pane">
         <img src="{{user.picture.medium}}"/>
-        <p>{{user.name.last}}, {{user.name.first}}</p>
-        <p>{{user.email}}</p>
+        <div *ngIf="!editing[i]">
+            <p>{{user.name.last}}, {{user.name.first}}</p>
+            <p>{{user.email}}</p>
+        </div>
+        <div *ngIf="editing[i]">
+            <input [(ngModel)]="user.name.last" placeholder="{{user.name.last}}"/>
+            <input [(ngModel)]="user.name.first" placeholder="{{user.name.first}}"/>
+            <input [(ngModel)]="user.email" placeholder="{{user.email}}"/>
+        </div>
     </div>
     <div class="button-pane">
+        <button *ngIf="!editing[i]" (click)="editUser(i)">Edit User</button>
+        <button *ngIf="editing[i]" (click)="editUser(i)">Save User</button>
         <button (click)="deleteUser(i)">Delete User</button>
     </div>
 </div>

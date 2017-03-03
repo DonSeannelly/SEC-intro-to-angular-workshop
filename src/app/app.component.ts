@@ -9,7 +9,8 @@ import { UserService } from './user.service';
 export class AppComponent {
 
   users;
-
+  editing;
+  
   constructor(public userService: UserService) {
     this.loadUsers();
   }
@@ -17,10 +18,18 @@ export class AppComponent {
     this.userService.load()
     .then(data => {
       this.users = data;
+    }).then(() =>{
+      this.editing = new Array();
+      for(let i = 0; i < this.users.length; i++) {
+        this.editing[i] = false;
+      }
     });
   }
   deleteUser(index) {
     this.users.splice(index, 1);
   } 
+  editUser(index) {
+    this.editing[index] = !this.editing[index];
+  }
 
 }
