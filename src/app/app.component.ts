@@ -18,6 +18,9 @@ export class AppComponent {
     .then(data => {
       this.users = data;
     });
-}
+  }
+  deleteUser(index) {
+    this.users.splice(index, 1);
+  } 
 
 }
